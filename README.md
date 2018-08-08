@@ -1,2 +1,2 @@
-# jiarong.github.io
+# Jiarong Yang
 Welcome to my personal website
