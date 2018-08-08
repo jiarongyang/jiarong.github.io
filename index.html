@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Jiarong Code Sample</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+
+        var slide = 1;
+        var leftClick = 0;
+        var rightClick = 0;
+        var timer = null;
+        
+        var nextSlide = function() {
+          if (slide == 3) {
+            slide = 0;
+          }
+          slide++; 
+        };
+
+        var previousSlide = function() {
+          if(slide == 1) {
+            slide = 4;
+          }
+          slide--;
+        };
+
+        var toogle = function(element1, element2) {
+          element1.hide();
+          element2.show();
+        };
+
+        var indicatorClicked = function(index) {
+          var $current = $('#introduction' + slide);
+          var $next = $('#introduction' + index);
+          toogle($current, $next);
+          slide = index;
+        }
+
+        $('#1').click(function(){
+          indicatorClicked(1);
+        });
+        $('#2').click(function(){
+          indicatorClicked(2);
+        });
+        $('#3').click(function(){
+          indicatorClicked(3);
+        });
+
+        $('.left').click(function() {
+          leftClick++;
+          if (leftClick === 1) {
+            timer = setTimeout(function() {
+              var $current = $('#introduction' + slide);
+              previousSlide();
+              var $next = $('#introduction' + slide);
+              toogle($current, $next);
+              leftClick = 0;
+            }, 600);
+          } else {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+              var $current = $('#introduction' + slide);
+              previousSlide();
+              var $next = $('#introduction' + slide);
+              toogle($current, $next);
+              leftClick = 0;
+            }, 600);
+          }
+        });
+
+        $('.right').click(function() {
+          rightClick++;
+          if (rightClick === 1) {
+            timer = setTimeout(function() {
+              var $current = $('#introduction' + slide);
+              nextSlide();
+              var $next = $('#introduction' + slide);
+              toogle($current, $next);
+              rightClick = 0;
+            }, 600);
+          } else {
+            clearTimeout(timer);
+            timer = setTimeout(function() {
+              var $current = $('#introduction' + slide);
+              nextSlide();
+              var $next = $('#introduction' + slide);
+              toogle($current, $next);
+              rightClick = 0;
+            }, 600);
+          }
+        });
+
+      });
+    </script>
+    <style>
+      .navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: 0;
+        border-radius: 0;
+        margin-bottom: 0;
+        font-size: 12px;
+        letter-spacing: 5px;
+  	  }
+      .navbar-nav  li a:hover {
+        color: #ffb6c1 !important;
+  	  }
+  	  .container-fluid {
+  	  	padding-top: 30px;
+  	  	padding-bottom: 30px;
+  	  }
+      .bg-pink {
+      	background-color: #ffb6c1;
+        color: #ffffff;
+      }
+      .bg-green {
+        background-color: #90ee90;
+        color: #ffffff;
+      }
+      .bg-grey {
+      	background-color: #dcdcdc;
+      	color: #000;
+      }
+      .big-font {
+      	font-size: 20px;
+      }
+      .small-font {
+      	font-size: 16px;
+      }
+      .green-font {
+      	color: #50C6B8;
+      }
+      .book {
+      	font-style: italic;
+      }
+      .no-margin {
+      	margin: 0;
+      }
+	</style>
+  </head>
+  <body>
+  	<nav class="navbar navbar-default">
+  	  <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Me</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Resume -->
+    <div id="resume" class="container-fluid bg-pink">
+    	<div class="container text-center">
+    		<h2 class="no-margin">Jiarong <span class="green-font">Y</span>ang</h2>
+    		<p class="no-margin">Phone: (+86) 18811743130 </p>
+            <p class="no-margin">Email: snjiarong@163.com</p>
+    	</div>
+    	<div class="container">
+    		<p class="big-font">EDUCATION:</p>
+    		<div class="small-font">
+    			<ul type="disc">
+    				<li class="green-font">M.A in Comparative Literature and World Literature (folklore and anthropology)</li>
+      				<p>Mizu University | Beijing | Sept, 2013 - June, 2016</p>
+      				<li class="green-font">B.M in HRM (human resource management)</li> 
+      				<p>Beijing Information Science And Technology University | Beijing | Sept, 2008 - June, 2012</p>
+    			</ul>
+    		</div>
+    	</div>
+    	<div class="container">
+    		<p class="big-font">WORK EXPERIENCE</p>
+     		<div class="small-font">
+     			<ul>
+     				<li class="green-font">Digital Media Manager</li>
+     				<p class="green-font">Bytedance | June, 2017 - June, 2018</p>
+      				<p>Developed content strategy to increase web trafficFeb. Propelled design and decision-making forward through creating user journey maps, wireframes, interaction flows, storyboards, and other design artifacts. Identified and defined digital marketing goals for clients including different teams and media personalities. Propelled design and decision-making forward through creating user journey maps, wireframes, interaction flows, storyboards, and other design artifacts.</p>
+     				<li class="green-font">Digital Marketing</li>
+     				<p class="green-font">Lagou | Nov,2015 - June,2017</p>
+      				<p>Conducted user interviews and surveys to identify insights resulting in a new function of APP. Collaborated with product and engineering to ship design and execute deliverables. Increased content engagemfollowers, likes, and shares on social media platforms. A/ B tested landing pages and email headlines for incrent through increasing eased conversions and open rates. Assisted to Design and illustrat original marketing flyers and graphics for Blueline and associated businesses. Created and maintained websites for clients.</p>
+     			</ul>
+     		</div>
+    	</div>
+    	<div class="container">
+    		<p class="big-font">ACTIVITIES</p>
+     		<div class="small-font">
+     			<ul>
+     				<li class="green-font">Team Leader</li>
+      				<p>Field work：Investigation and research on the status of Oral Narrative in Chinese ethnic villages under social transformation | Guizhou | 2014 </p>
+     				<li class="green-font">Student representative</li>
+     				<p class="no-margin">National Seminar on comparative literature of Chinese minorities with multicultural Perspective | Beijing | 2014</p>
+      				<p>International Seminar Series on Epic Studies and Oral Tradition Research | Beijing | 2013/ 2014</p>
+      				<li class="green-font">Volunteer</li>
+      				<p>Education promotion community program for youth | Beijing | 2014</p>
+     			</ul>
+     		</div>
+    	</div>
+    	<div class="container">
+    		<p class="big-font">PUBLICATION:</p>
+    		<div class="small-font">
+     			<ul>
+     				<li class="green-font">Jiarong Yang. ( July, 2014 ). A comparative study of the mythology of Mongolians in Heilongjiang and Inner Mongolia</li>
+      				<p>Paper was included in the symposium <span class="book">The ethnic origin research of Mongolian and Hulun Buir Nationalities</span> ( ISBN code 987-7-5161-4446-6 ), a study of the relationship between Mongolian origin and ethnic groups in Hulun Buir from the perspective of oral tradition, one sub-topic of <span class="book">The Mongolian source and the Yuan Dynasty imperial mausoleum comprehensive study</span>, National Social Science Foundation's major project ( Approval No 12@ZH014 ).</p>
+     			</ul>
+     		</div>
+    	</div>
+    </div>
+
+    <!-- Gallery-->
+    <div id="gallery" class="container-fluid bg-grey">
+    	<h2 class="text-center">My photographs</h2>
+    	<div  class="container">
+      		<div id="Carousel" class="carousel slide" data-interval="false">
+        		<!-- Indicators -->
+		        <ol class="carousel-indicators">
+		          <li id="1" data-target="#Carousel" data-slide-to="0" class="active"></li>
+		          <li id="2" data-target="#Carousel" data-slide-to="1"></li>
+		          <li id="3" data-target="#Carousel" data-slide-to="2"></li>
+		        </ol>
+
+		        <!-- Wrapper for slides -->
+		        <div class="carousel-inner">
+		          <div class="item active">
+		            <img src="./resources/la.jpg" alt="Los Angeles">
+		            <div class="carousel-caption">
+		              <h3>Los Angeles</h3>
+		            </div>
+		          </div>
+
+		          <div class="item">
+		            <img src="./resources/chicago.jpg" alt="Chicago">
+		            <div class="carousel-caption">
+		              <h3>Chicago</h3>
+		            </div>
+		          </div>
+
+		          <div class="item">
+		            <img src="./resources/ny.jpg" alt="New York">
+		            <div class="carousel-caption">
+		              <h3>New York</h3>
+		            </div>
+		          </div>
+        		</div>
+
+		        <!-- Left and right controls -->
+		        <a class="left carousel-control" href="#Carousel" data-slide="prev">
+		          <span class="glyphicon glyphicon-chevron-left"></span>
+		          <span class="sr-only">Previous</span>
+		        </a>
+		        <a class="right carousel-control" href="#Carousel" data-slide="next">
+		          <span class="glyphicon glyphicon-chevron-right"></span>
+		          <span class="sr-only">Next</span>
+		        </a>
+		    </div>
+    	</div>
+
+	    <div id="introduction1" class="container text-center">
+	      <h2>Los Angeles</h2>
+	      <p>Los Angeles is a good place</p>
+	    </div>
+
+	    <div id="introduction2" class="container text-center" style="display: none">
+	      <h2>Chicago</h2>
+	      <p>Chicago is a good place</p>
+	    </div>
+
+	    <div id="introduction3" class="container text-center" style="display: none">
+	      <h2>New York</h2>
+	      <p>New York is a good place</p>
+	    </div>	
+    </div>
+
+    <!-- Footer -->
+	<footer class="container-fluid text-center">
+  		<h2>Nice to meet you!</h2> 
+	</footer>
+  </body>
+</html>
